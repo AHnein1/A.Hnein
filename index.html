@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Linktree</title>
+    <title>Portfolio Linktree</title>
     
     <!-- Google Fonts for professional typography -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -118,7 +118,6 @@
             font-weight: 500;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             overflow: hidden;
-            group: hover;
         }
 
         .link-btn:hover {
@@ -130,13 +129,6 @@
 
         .link-btn:active {
             transform: translateY(0) scale(0.98);
-        }
-
-        /* Icon styling inside button */
-        .link-icon {
-            margin-right: 12px;
-            font-size: 1.2rem;
-            filter: drop-shadow(0 0 5px rgba(255,255,255,0.2));
         }
 
         /* --- FOOTER --- */
@@ -187,7 +179,7 @@
         // --- CONFIGURATION ---
         
         // 1. Define your websites here
-        // Format: { name: "Button Text", url: "https://...", icon: "🚀" }
+        // Format: { name: "Button Text", url: "https://..." }
         const myWebsites = [
             { 
                 name: "Main Portfolio", 
@@ -202,7 +194,7 @@
             { 
                 name: "DJ Profile", 
                 url: "https://audius.co/dj_antho", 
-                icon: "▶️" 
+            
             },
             { 
                 name: "Professional Scoreboard", 
@@ -221,7 +213,7 @@
         const container = document.getElementById('links-container');
         document.getElementById('year').textContent = new Date().getFullYear();
 
-        // Function to generate buttons
+        // Function to generate buttons (No Icons)
         myWebsites.forEach(site => {
             const a = document.createElement('a');
             a.href = site.url;
@@ -229,10 +221,8 @@
             a.rel = "noopener noreferrer"; // Security best practice
             a.className = "link-btn";
             
-            // HTML content for the button
-            a.innerHTML =
-                <span>${site.name}</span>
-            `;
+            // HTML content for the button (Text only)
+            a.innerHTML = `<span>${site.name}</span>`;
 
             container.appendChild(a);
         });
